@@ -1,0 +1,74 @@
+<div class="addProduct">
+    <form [formGroup]="productForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter name">
+        </div>
+        <div class="err" *ngIf="productFormControl['name'].hasError('required') && productFormControl['name'].dirty">
+            name is a required field</div>
+
+        <div class="form-group">
+            <label for="mrp">MRP</label>
+            <input type="number" formControlName="mrp" class="form-control" id="mrp" placeholder="Enter mrp">
+        </div>
+        <div class="err" *ngIf="productFormControl['mrp'].hasError('required') && productFormControl['mrp'].dirty">mrp
+            is a required field</div>
+
+
+        <div class="form-group">
+            <label for="discount">Discount(in %)</label>
+            <input type="number" formControlName="discount" class="form-control" id="discount"
+                placeholder="Enter discount">
+        </div>
+        <div class="err"
+            *ngIf="productFormControl['discount'].hasError('required') && productFormControl['discount'].dirty">Discount
+            is a required field</div>
+        <div class="err" *ngIf="productFormControl['discount'].hasError('min') && productFormControl['discount'].dirty">
+            Discount must be greater than 0</div>
+        <div class="err" *ngIf="productFormControl['discount'].hasError('max') && productFormControl['discount'].dirty">
+            Discount must less than 100</div>
+
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea formControlName="description" class="form-control" id="description"
+                placeholder="Enter description"></textarea>
+        </div>
+        <div class="err"
+            *ngIf="productFormControl['description'].hasError('required') && productFormControl['description'].dirty">
+            Description
+            is a required field</div>
+
+        <div class="form-group">
+            <label for="category">Categrory</label>
+            <select name="category" id="category" formControlName="category">
+                <option value="">---select---</option>
+                <option *ngFor="let category of categoryList" [value]="category._id">
+                    {{category.name}}
+                </option>
+            </select>
+        </div>
+        <div class="err"
+            *ngIf="productFormControl['category'].hasError('required') && productFormControl['category'].dirty">
+            Categrory
+            is a required field</div>
+
+
+        <div class="form-group">
+            <label for="totalQuantity">Quantity</label>
+            <input type="number" formControlName="totalQuantity" class="form-control" id="totalQuantity"
+                placeholder="Enter totalQuantity">
+        </div>
+        <div class="err"
+            *ngIf="productFormControl['totalQuantity'].hasError('required') && productFormControl['totalQuantity'].dirty">
+            Quantity
+            is a required field</div>
+
+        <div class="form-group">
+            <label for="image">Quantity</label>
+            <input type="file" name="image" id="image" accept="image/*" (change)="onSelectingFile($event)">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid"
+            (click)="onSubmit()">Submit</button>
+    </form>
+</div>
