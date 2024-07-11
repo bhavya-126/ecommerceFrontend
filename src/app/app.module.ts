@@ -14,6 +14,13 @@ import { AdminHomeComponent } from './component/admin-home/admin-home.component'
 import { AddProductComponent } from './component/add-product/add-product.component';
 import { HeaderComponent } from './component/admin-home/header/header.component';
 import { AddCategoryComponent } from './component/admin-home/add-category/add-category.component';
+import { CartComponent } from './component/cart/cart.component';
+import { PlaceOrderComponent } from './component/place-order/place-order.component';
+import { Header2Component } from './component/header2/header2.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { ProductComponent } from './component/product/product.component';
+import { DashboardComponent } from './component/admin-home/dashboard/dashboard.component';
+import { PendingOrdersComponent } from './component/admin-home/pending-orders/pending-orders.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,14 @@ import { AddCategoryComponent } from './component/admin-home/add-category/add-ca
     AdminHomeComponent,
     AddProductComponent,
     HeaderComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    CartComponent,
+    PlaceOrderComponent,
+    Header2Component,
+    ProfileComponent,
+    ProductComponent,
+    DashboardComponent,
+    PendingOrdersComponent
   ],
   imports: [
     BrowserModule,

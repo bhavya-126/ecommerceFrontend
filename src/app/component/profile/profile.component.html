@@ -1,0 +1,73 @@
+<app-header2></app-header2>
+
+<div class="profile-container">
+    <div class="content">
+        <h2> {{user.name}} </h2>
+    </div>
+    <div class="personal-details">
+        <div class="personal-details-item">
+            <h3> Email </h3>
+            <p> {{user.email}} </p>
+        </div>
+        <div class="personal-details-item">
+            <h3> Phone </h3>
+            <p> {{user.mobile}} </p>
+        </div>
+        <div class="personal-details-item">
+            <h3> Address </h3>
+            <p> {{user.address?.houseNo + ', ' + user.address?.area + ', ' + user.address?.city + '. '
+                +
+                user.address?.state}} </p>
+        </div>
+    </div>
+    <div class="acc-data">
+        {{user.createdAt | date}}
+    </div>
+</div>
+
+
+<div class="wishlist-container">
+    <h2>Wishlisted Items</h2>
+    <!-- horizontal representation of wishlisted items scroll for overflow  -->
+    <div class="wishlist-items">
+        <div class="wishlist-item" *ngFor="let item of wishlist">
+            <div class="wishlist-item-img">
+                <img [src]="BASE_URL+item.imageUrl" alt="item.name">
+            </div>
+            <div class="wishlist-item-details">
+                <h3> {{item.name}} </h3>
+                <p> {{item.price}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="paging" *ngIf="wishlistPage.length>1">
+        <button type="button" class="btn btn-primary mx-2" (click)="wishlistProduct(index)"
+            *ngFor="let page of wishlistPage; let index = index">{{index+1}}</button>
+
+    </div>
+</div>
+
+<div class="orderHostory">
+    <h2>order history</h2>
+    <div class="d-flex">
+
+        <div class="order-history " *ngFor="let order of orderHistory">
+            <div class="order-history-item">
+                <div class="order-history-item-img">
+                    <img [src]="BASE_URL+order.product.imageUrl" alt="order.product.name">
+                </div>
+                <div class="order-history-item-details">
+                    <h3> {{order.product.name}} </h3>
+                    <p><s> {{order.items.mrp}} </s> </p>
+                    <p> {{order.items.mrp * (100 - order.items.discount) / 100}} </p>
+                    <p>order Date: {{order.createdAt | date}}</p>
+                    <p>order status: {{order.status}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="paging">
+        <button type="button" class="btn btn-primary mx-2" *ngFor="let page of orderHistoryPage; let index = index"
+            (click)="getHistory(index)">{{index+1}}</button>
+    </div>
+</div>

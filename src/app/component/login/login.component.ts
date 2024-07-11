@@ -32,15 +32,29 @@ export class LoginComponent {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                this.router.navigate(["/home"]);
-
+                if (res.data.role === "admin") {
+                    sessionStorage.setItem("role", res.data.role ?? "");
+                    this.router.navigate(["/admin"]);
+                } else {
+                    this.router.navigate(["/home"]);
+                }
             },
             error: (err: any) => {
                 console.log(err);
+                if (err.status === 401) {
+                    sessionStorage.setItem("userId", err.error.data.userId);
+                    this.router.navigate(["/verify"]);
+                    Swal.fire({
+                        title: "Oops...",
+                        text: "verify email first"
+                    });
+                    return;
+
+                }
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: err.message
+                    text: err.error.message
                 });
             },
         });

@@ -40,16 +40,12 @@ export class AddProductComponent {
         this.categorySub.subscribe({
             next: (res: any) => {
                 this.categoryList = res;
-                console.log(this.categoryList);
-
             }
         })
     }
 
     onSelectingFile(event: Event) {
         this.selectedFile = (event.target as HTMLInputElement).files?.[0];
-        console.log(this.selectedFile);
-
     }
 
     get productFormControl() {
@@ -67,6 +63,7 @@ export class AddProductComponent {
                 this.httpService.addProduct({ ...this.productForm.value, imageUrl }).subscribe({
                     next: (res) => {
                         Swal.fire('Success', 'Product added successfully', 'success');
+                        this.productForm.reset();
                     },
                     error: (err) => {
                         Swal.fire('Error', 'Product not added', 'error');

@@ -1,0 +1,40 @@
+<app-header2></app-header2>
+
+<div class="product-container">
+    <div class="product-image">
+        <img [src]="BASE_URL + product.imageUrl" alt="product.name">
+    </div>
+    <div class="product-content">
+        <h1> {{product.name}} </h1>
+        <span class="price">
+            <s>{{product.mrp | currency: 'INR'}}</s>
+            {{product.mrp * (100 - product.discount) / 100 | currency: 'INR'}}
+        </span>
+        <p class="product_desc"> {{product.description}} </p>
+        <p *ngIf="product.totalQuantity <= 0">out of stock</p>
+        <div class="buttons">
+            <div>
+                <button type="button" (click)="onClickAddCart(product._id)" [disabled]="product.totalQuantity <= 0">{{
+                    product.inCart? 'Go to cart' :'Add to
+                    Cart'}}</button>
+            </div>
+            <div class="mt-1">
+                <input type="image" [src]="(product.wishlist)? '../../../assets/like.png': '../../../assets/noLike.png'"
+                    height="30px" width="30px" alt="wishlist" (click)="onClickAddWishlist(product._id)">
+            </div>
+        </div>
+    </div>
+
+    <div class="product-reviews">
+        <h2>Reviews</h2>
+        <div *ngFor="let review of reviews">
+            <div class="review">
+                <span class="customer"> {{review.userId.name}} </span>
+                <h3>{{review.rating}}</h3>
+                <span class="time"> {{review.createdAt | date}} </span>
+                <p>{{review.review}}</p>
+            </div>
+        </div>
+    </div>
+    
+</div>

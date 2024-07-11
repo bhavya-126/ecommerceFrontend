@@ -1,0 +1,66 @@
+<div class="dashboard-container">
+    <h1>Admin Dashboard</h1>
+    <div class="dashboard-content">
+        <div class="statics-flex">
+            <div class="statics-item">
+                <span><em>total sales</em></span>
+                <span class="price">{{sales | currency: 'INR'}}</span>
+            </div>
+            <div class="statics-item">
+                <span><em>total users</em></span>
+                <span class="price">{{totalUsers}}</span>
+            </div>
+            <div class="statics-item">
+                <span><em>total product</em></span>
+                <span class="price">{{totalProducts}}</span>
+            </div>
+        </div>
+
+
+        <div class="max-ordered">
+            <!-- horizontal representation with button at end of container  to add more and when overloads give a scrollbar -->
+            <h2>Most ordered products</h2>
+            <div class="product-list">
+                <div class="product-item" *ngFor="let product of maxOrderedProduct">
+                    <div class="product-image">
+                        <img [src]="BASE_URL + product.product.imageUrl" alt="product image" height="150px"
+                            width="280px">
+                    </div>
+                    <div class="product-details">
+                        <h3>{{product.product.name}}</h3>
+                        <p>{{product.product.description}}</p>
+                        <span class="price"><s>{{product.product.mrp | currency: 'INR'}}</s></span>
+                        <span class="price">{{(product.product.mrp * (100-product.product.discount) / 100) | currency:
+                            'INR'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="out-of-stock-prod">
+            <!-- horizontal representation of out of stock with button at end of container  to add more and when overloads give a scrollbar -->
+            <div class="product-container">
+                <h2>Out of stock products</h2>
+                <div class="product-list">
+                    <div class="product-item" *ngFor="let product of outOfStock">
+                        <div class="product-image">
+                            <img [src]="BASE_URL + product.imageUrl" alt="product image" height="150px" width="280px">
+                        </div>
+                        <div class="product-details">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <span class="price"><s>{{product.mrp | currency: 'INR'}}</s></span>
+                            <span class="price">{{(product.mrp * (100-product.discount) / 100) | currency:
+                                'INR'}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <button type="button" class="btn btn-primary mx-2"
+                        *ngFor="let page of outOfStockPage; let index = index"
+                        (click)="outOfStockProduct(index)">{{index+1}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

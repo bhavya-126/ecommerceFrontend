@@ -1,0 +1,19 @@
+<div class="orderHostory">
+    <h2>order history</h2>
+    <div class="order-history" *ngFor="let order of product">
+        <div class="order-history-item" *ngIf="order.productId">
+            <div class="order-history-item-img">
+                <img [src]="BASE_URL+order.productId.imageUrl" alt="order.productId.name">
+            </div>
+            <div class="order-history-item-details">
+                <h3> {{order.productId.name}} </h3>
+                <p><s> {{order.productId.mrp}} </s> </p>
+                <p> {{order.productId.mrp * (100 - order.productId.discount) / 100}} </p>
+                <p>order Date: {{order.createdAt | date}}</p>
+                <p>order status: {{order.status}}</p>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary mx-2" *ngFor="let page of pages; let index = index"
+        (click)="pendingOrders(index)">{{index+1}}</button>
+</div>

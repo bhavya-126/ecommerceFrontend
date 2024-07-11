@@ -1,0 +1,101 @@
+.product-container {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    flex: 0 0 30%;
+    /* Set the width of the image container */
+    margin-right: 15px;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-content {
+    flex: 1;
+    /* Take remaining space in the flex container */
+}
+
+.product-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.price s {
+    color: #999;
+    margin-right: 5px;
+}
+
+.product_desc {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.buttons button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+.product-reviews {
+    margin-top: 20px;
+}
+
+.product-reviews h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.review {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.review .customer {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.review .time {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review p {
+    margin-top: 5px;
+    line-height: 1.4;
+}

@@ -1,0 +1,44 @@
+<app-header2></app-header2>
+
+<div class="cart-container">
+    <div class="cart-items">
+        <div class="cart-item flex" *ngFor="let item of cartData">
+            <div class="cart-item-image">
+                <img [src]="BASE_URL + item.productId.imageUrl" alt="item.name">
+            </div>
+            <div class="item-detail">
+                <h3>{{item.productId.name}}</h3>
+                <span class="price"> {{item.productId.discount}}%</span>
+                <span class="price"> <s> {{item.productId.mrp | currency: 'INR'}} </s></span>
+                <span class="price"> {{ item.productId.mrp * (100-item.productId.discount)/100 | currency: 'INR'
+                    }}</span>
+                <span class="price">Quantity:
+                    <button class="btn btn-primary" type="button"
+                        (click)="removeQuantity(item.productId._id)">-</button>
+                    {{item.quantity}}
+                    <button class="btn btn-primary" type="button" (click)="addQuantity(item.productId._id)">+</button>
+                </span>
+                <button type="button" class="btn btn-primary"
+                    (click)="removeProduct(item.productId._id)">remove</button>
+            </div>
+
+        </div>
+        <div class="cart-price-details">
+            <h3>Price Details</h3>
+            mrp({{cartData.length}} items): <span>{{totalMrp | currency: 'INR'}}</span>
+            discount: <span> - {{totalDiscount | currency: 'INR'}}</span>
+            <em>Total Price: </em> <span> {{totalMrp-totalDiscount | currency: 'INR'}} </span>
+        </div>
+    </div>
+    <div class="cart-action flex">
+        <div class="flex-item">
+            <span class="mrp">
+                <s>{{totalMrp | currency: 'INR'}}</s>
+            </span>
+            <span> {{totalMrp-totalDiscount | currency: 'INR'}} </span>
+        </div>
+        <div class="flex-item">
+            <button type="button" class="btn btn-primary" (click)="placeOrder()">Place order</button>
+        </div>
+    </div>
+</div>

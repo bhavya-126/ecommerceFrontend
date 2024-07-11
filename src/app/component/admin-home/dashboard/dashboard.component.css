@@ -1,0 +1,121 @@
+/* Styles for Admin Dashboard */
+
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.statics-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.statics-item {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.statics-item span em {
+    display: block;
+    font-style: italic;
+    color: #666;
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+}
+
+.out-of-stock-prod, .max-ordered {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.product-container {
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.product-item {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    width: 300px; /* Adjust width as needed */
+}
+
+.product-item:last-child {
+    margin-right: 0;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.product-details {
+    padding: 10px;
+}
+
+.product-details h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    color: #666;
+}
+
+.product-details .price {
+    font-weight: bold;
+}
+
+.button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .product-item {
+        width: 100%; /* Full width on smaller screens */
+        margin-right: 0;
+    }
+}

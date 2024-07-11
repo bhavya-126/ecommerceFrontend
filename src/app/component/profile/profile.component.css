@@ -1,0 +1,145 @@
+/* Container for the profile */
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Content section */
+.content {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Personal details section */
+.personal-details {
+    padding: 20px;
+}
+
+.personal-details-item {
+    margin-bottom: 10px;
+}
+
+.personal-details-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.personal-details-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Account data section */
+.acc-data {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Wishlist container */
+.wishlist-container {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.wishlist-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Wishlist items */
+.wishlist-items {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.wishlist-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.wishlist-item-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+
+.wishlist-item-details {
+    padding: 10px;
+}
+
+.wishlist-item-details h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.wishlist-item-details p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Order history container */
+.order-history {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.order-history h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Order history items */
+.order-history-item {
+    display: inline-block;
+    width: 200px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.order-history-item-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+
+.order-history-item-details {
+    padding: 10px;
+}
+
+.order-history-item-details h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.order-history-item-details p {
+    font-size: 14px;
+    color: #666;
+}
+
+.paging{
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
