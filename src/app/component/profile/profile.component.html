@@ -61,7 +61,7 @@
                     <p><s> {{order.items.mrp}} </s> </p>
                     <p> {{order.items.mrp * (100 - order.items.discount) / 100}} </p>
                     <p>order Date: {{order.createdAt | date}}</p>
-                    <p>order status: {{order.status}}</p>
+                    <p>order status: {{order.items.status}}</p>
                 </div>
             </div>
         </div>

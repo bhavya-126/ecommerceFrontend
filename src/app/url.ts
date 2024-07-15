@@ -13,7 +13,7 @@ export const URL = {
     ADD_IMAGE: "/product/image",
     GET_PRODUCTS: "/product",
     CART: "/cart",
-    ORDER_HISTOORY: "/order",
+    ORDER: "/order",
     PLACE_ORDER: "/placeOrder",
     REVIEW: '/review',
     DASHBOARD_STATICS: "/dashboard/statics",

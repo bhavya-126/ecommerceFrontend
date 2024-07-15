@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class AuthGuardService {
     static canActivateHome(): boolean {
-        if (sessionStorage.getItem('token')) {
+        if (sessionStorage.getItem('token') && sessionStorage.getItem('role') !== 'admin') {
             return true;
         }
         let router: Router = inject(Router);

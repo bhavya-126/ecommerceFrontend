@@ -14,22 +14,23 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { ProductComponent } from './component/product/product.component';
 import { DashboardComponent } from './component/admin-home/dashboard/dashboard.component';
 import { PendingOrdersComponent } from './component/admin-home/pending-orders/pending-orders.component';
+import { PATH } from './route'
 
 const routes: Routes = [
-    { path: '', redirectTo: '/admin', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent, canActivate: [AuthGuardService.canActivatelogin] },
-    { path: 'signup', component: SignupComponent, canActivate: [AuthGuardService.canActivatelogin] },
-    { path: 'verify', component: VerifyComponent },
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuardService.canActivateHome] },
-    { path: 'product/:product_id', component: ProductComponent, canActivate: [AuthGuardService.canActivateHome] },
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService.canActivateHome] },
-    { path: 'cart', component: CartComponent, canActivate: [AuthGuardService.canActivateHome] },
+    { path: '', redirectTo: PATH.ADMIN, pathMatch: 'full' },
+    { path: PATH.LOGIN, component: LoginComponent, canActivate: [AuthGuardService.canActivatelogin] },
+    { path: PATH.SIGNUP, component: SignupComponent, canActivate: [AuthGuardService.canActivatelogin] },
+    { path: PATH.VERIFY, component: VerifyComponent },
+    { path: PATH.HOME, component: HomeComponent, canActivate: [AuthGuardService.canActivateHome] },
+    { path: PATH.PRODUCT, component: ProductComponent, canActivate: [AuthGuardService.canActivateHome] },
+    { path: PATH.PROFILE, component: ProfileComponent, canActivate: [AuthGuardService.canActivateHome] },
+    { path: PATH.CART, component: CartComponent, canActivate: [AuthGuardService.canActivateHome] },
     {
-        path: 'admin', component: AdminHomeComponent, canActivate: [AuthGuardService.canActivateAdmin], children: [
+        path: PATH.ADMIN, component: AdminHomeComponent, canActivate: [AuthGuardService.canActivateAdmin], children: [
             { path: '', component: DashboardComponent },
-            { path: 'add/product', component: AddProductComponent },
-            { path: 'add/categroy', component: AddCategoryComponent },
-            { path: 'peding/order', component: PendingOrdersComponent },
+            { path: PATH.ADD_PRODUCT, component: AddProductComponent },
+            { path: PATH.ADD_CATEGORY, component: AddCategoryComponent },
+            { path: PATH.PENDING_ORDERS, component: PendingOrdersComponent },
         ]
     },
     { path: '**', component: PageNotFoundComponent }

@@ -19,14 +19,11 @@ export class ProductComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.params.subscribe({
             next: (res: any) => {
-                console.log(res.product_id);
                 this.productId = res.product_id;
             }
         })
         this.product = this.httpService.products.find((product: any) => product._id === this.productId);
-        console.log(this.product);
         this.httpService.getReview(this.productId, this.reviews.length).subscribe((res: any) => {
-            console.log("reviews:", res.data);
             this.reviews.push(...res.data);
         })
     }

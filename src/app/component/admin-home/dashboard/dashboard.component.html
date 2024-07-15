@@ -41,6 +41,7 @@
             <!-- horizontal representation of out of stock with button at end of container  to add more and when overloads give a scrollbar -->
             <div class="product-container">
                 <h2>Out of stock products</h2>
+                <div *ngIf="!outOfStock.length">all products are in stock</div>
                 <div class="product-list">
                     <div class="product-item" *ngFor="let product of outOfStock">
                         <div class="product-image">
@@ -54,11 +55,11 @@
                                 'INR'}}</span>
                         </div>
                     </div>
-                </div>
-                <div class="button">
-                    <button type="button" class="btn btn-primary mx-2"
-                        *ngFor="let page of outOfStockPage; let index = index"
-                        (click)="outOfStockProduct(index)">{{index+1}}</button>
+                    <div class="button">
+                        <button type="button" class="btn btn-primary mx-2"
+                            *ngFor="let page of outOfStockPage; let index = index"
+                            (click)="outOfStockProduct(index)">{{index+1}}</button>
+                    </div>
                 </div>
             </div>
         </div>

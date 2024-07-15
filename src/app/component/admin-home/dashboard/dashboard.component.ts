@@ -51,8 +51,7 @@ export class DashboardComponent {
     outOfStockProduct(pageNo: number) {
         this.httpService.outOfStock(pageNo).subscribe({
             next: (res: any) => {
-                this.outOfStock = res.data.products
-                console.log("out of stock: ", res.data);
+                this.outOfStock = res.data.products;
                 this.outOfStockPage = Array(Math.round(res.data.count / 5)).fill(0)
             }
         })
@@ -62,7 +61,6 @@ export class DashboardComponent {
         this.httpService.maxOrderedProduct(pageNo).subscribe({
             next: (res: any) => {
                 this.maxOrderedProduct.push(...res.data);
-                console.log("max ordered product: ", this.maxOrderedProduct);
             },
             error: (err: any) => {
                 console.log(err);

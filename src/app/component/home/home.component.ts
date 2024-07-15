@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
                 this.totalProducts = res.data.productCount
                 this.pagecount = Math.round(this.totalProducts / 5)
                 this.pages = Array(this.pagecount).fill(0)
-                console.log("pages: ", this.pagecount);
             }
         })
     }

@@ -8,7 +8,7 @@ import { SignupComponent } from './component/signup/signup.component';
 import { HomeComponent } from './component/home/home.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { VerifyComponent } from './component/verify/verify.component';
 import { AdminHomeComponent } from './component/admin-home/admin-home.component';
 import { AddProductComponent } from './component/add-product/add-product.component';
@@ -21,35 +21,41 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { ProductComponent } from './component/product/product.component';
 import { DashboardComponent } from './component/admin-home/dashboard/dashboard.component';
 import { PendingOrdersComponent } from './component/admin-home/pending-orders/pending-orders.component';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    VerifyComponent,
-    AdminHomeComponent,
-    AddProductComponent,
-    HeaderComponent,
-    AddCategoryComponent,
-    CartComponent,
-    PlaceOrderComponent,
-    Header2Component,
-    ProfileComponent,
-    ProductComponent,
-    DashboardComponent,
-    PendingOrdersComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        SignupComponent,
+        HomeComponent,
+        PageNotFoundComponent,
+        VerifyComponent,
+        AdminHomeComponent,
+        AddProductComponent,
+        HeaderComponent,
+        AddCategoryComponent,
+        CartComponent,
+        PlaceOrderComponent,
+        Header2Component,
+        ProfileComponent,
+        ProductComponent,
+        DashboardComponent,
+        PendingOrdersComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+
+    ],
+    providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        {
+            provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true
+        }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

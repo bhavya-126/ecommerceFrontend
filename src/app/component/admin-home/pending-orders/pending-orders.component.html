@@ -1,16 +1,20 @@
 <div class="orderHostory">
-    <h2>order history</h2>
+    <h2>order pending</h2>
     <div class="order-history" *ngFor="let order of product">
-        <div class="order-history-item" *ngIf="order.productId">
+        <div class="order-history-item">
             <div class="order-history-item-img">
-                <img [src]="BASE_URL+order.productId.imageUrl" alt="order.productId.name">
+                <img [src]="BASE_URL+order.product.imageUrl" [alt]="order.product.name" alt="image">
             </div>
             <div class="order-history-item-details">
-                <h3> {{order.productId.name}} </h3>
-                <p><s> {{order.productId.mrp}} </s> </p>
-                <p> {{order.productId.mrp * (100 - order.productId.discount) / 100}} </p>
+                <h3> {{order.product.name}} </h3>
+                <p><s> {{order.product.mrp}} </s> </p>
+                <p> {{order.product.mrp * (100 - order.product.discount) / 100}} </p>
                 <p>order Date: {{order.createdAt | date}}</p>
                 <p>order status: {{order.status}}</p>
+                <p>orderId: {{order._id}}</p>
+            </div>
+            <div class="button">
+                <button class="btn btn-primary" (click)="updateOrder(order._id)">deliver</button>
             </div>
         </div>
     </div>

@@ -19,7 +19,6 @@ export class CartComponent {
         this.httpService.getCart().subscribe({
             next: (res: any) => {
                 this.cartData = res.data
-                console.log("cart", this.cartData);
                 this.calculateBill()
             },
             error: (err: any) => {

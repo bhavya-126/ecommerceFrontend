@@ -20,10 +20,22 @@ export class PendingOrdersComponent implements OnInit {
         this.httpService.pendingOrders(pageNo).subscribe({
             next: (res: any) => {
                 this.product = res.data.product;
-                this.pages = Array(Math.round(res.data.count / 5)).fill(0);
+                this.pages = Array(Math.ceil(res.data.count / 5)).fill(0);
             },
             error: (err) => {
                 console.log(err);
+            }
+        })
+    }
+    updateOrder(orderId: string) {
+        this.httpService.updateOrder(orderId, { status: 'delivered' }).subscribe({
+            next: (res: any) => {
+                let index = this.product.findIndex((order: any) => order._id === orderId);
+                this.product[index].status = 'delivered';
+            },
+            error: (err: any) => {
+                console.log(err);
+
             }
         })
     }
